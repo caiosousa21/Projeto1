@@ -6,16 +6,13 @@ function component() {
   let element = document.createElement('div');
 
   var btn4 = document.createElement('button');
-  btn4.innerHTML = 'Atualizar index para exclusão'
-  
+  btn4.innerHTML = 'Exclue o quarto item'
+
   btn4.onclick = () => {
     var todos = document.querySelectorAll('p');
-    for(var i= 0;i<todos.length;i++){
-      todos.id='i'+i;
-    }
-    todos.onclick = function () {
-      listagem.removeChild(todos);
-    }
+    var listagem = todos[0].parentNode;
+    listagem.removeChild(todos[4]);
+
   }
 
   var selecionar = document.createElement('select');
