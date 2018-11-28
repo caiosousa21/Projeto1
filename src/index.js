@@ -27,21 +27,22 @@ function component() {
       var entradaValores = document.createElement('input');
       entradaValores.type = 'text';
       entradaValores.id = 'entra';
-      formulario.appendChild(entradaValores);
 
       //criando botão
       var btnSubmit = document.createElement('input');
-      btnSubmit.type = 'submit';
+      btnSubmit.type = 'button';
       btnSubmit.id = 'btn';
-      btnSubmit.textContent = 'Enviar';
+      btnSubmit.innerHTML = 'Enviar';
 
-      document.body.insertAdjacentElement('afterend', formulario);
+      document.body.insertAdjacentElement('afterbegin', formulario);
       formulario.appendChild(entradaValores);
       formulario.appendChild(btnSubmit);
 
+      entradaValores.va
       let entrada = document.getElementById('entra');
+      let btnEnv = document.getElementById('btn');
 
-      btn2.onclick = ()=>{
+      btnEnv.onclick = ()=>{
         construir(entrada.value);
         entrada.value='';
       }
@@ -66,5 +67,5 @@ function Livro(titulo) {
 function construir(valor) {
   let para = document.createElement('p');
   para.innerHTML = valor;
-  document.body.append(para);
+  document.body.insertAdjacentElement('afterend',para);
 }
