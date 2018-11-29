@@ -4,18 +4,18 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack')
 
 module.exports = {
-    entry: 
+    entry:
     {
-        app:'./src/index.js'
+        app: './src/index.js'
     },
-    devtool:'inline-source-map',
-    devServer:{
+    devtool: 'inline-source-map',
+    devServer: {
         contentBase: './dist',
         hot: true
     },
-    plugins:[
+    plugins: [
         new HtmlWebpackPlugin({
-            title:'Projeto 1'
+            title: 'Projeto 1'
         }),
         new CleanWebpackPlugin(['dist']),
         new webpack.HotModuleReplacementPlugin()
@@ -23,5 +23,22 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
+    },
+    module: {
+        rules: [
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                use: [
+                    'file-loader'
+                ]
+            }
+        ]
     }
 }

@@ -1,9 +1,11 @@
 import buscarLivros from './buscarLista';
 import nomeNaLista from './nomeDeLista';
 import buscarTitulos from './buscarNaPagina';
+import './style.css'
 
 function component() {
   let element = document.createElement('div');
+  element.id='divEle';
 
   var btn4 = document.createElement('button');
   btn4.innerHTML = 'Exclue o quarto item'
@@ -116,7 +118,9 @@ function component() {
 
 
   }
+  var quebra = document.createElement('br');
   element.appendChild(selecionar);
+  element.appendChild(quebra)
   element.appendChild(btn);
   element.appendChild(btn2);
   element.appendChild(btn3);

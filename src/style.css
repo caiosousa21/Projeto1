@@ -1,0 +1,12 @@
+body{
+    display: grid;
+    background: url('./fundoBody.jpg');
+    justify-items: center;
+}
+#item{
+    background-color: aqua;
+
+}
+#divEle{
+    display: grid;
+}
