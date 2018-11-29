@@ -77,8 +77,13 @@ function component() {
       let entrada = document.getElementById('entra');
       let btnEnv = document.getElementById('btn');
 
+      // let paranum = document.querySelectorAll('p');
+      // let paraNovo = document.createElement('p');
+      // paraNovo.id = 'para'+paranum;
+      // console.log(paranum.length);
+
       btnEnv.onclick = () => {
-        construir(entrada.value);
+        construirPara(entrada.value);
         entrada.value = '';
       }
     }
@@ -96,8 +101,17 @@ function component() {
     var numero = selecionar.options[selecionar.selectedIndex].value;
     var lista = buscarLivros(nomeNaLista(parseInt(numero)));
     document.body.append(listagem);
+    
+    for(var i=0;i<15;i++){
+      let listagem = document.getElementById('item');
+      let para = document.createElement('p');
+      para.id = 'para'+i;
+      listagem.appendChild(para);
+    }
+    var i = 0;
     lista.forEach(valor => {
-      construir(valor);
+      construir(valor, i);
+      i++;
     });
 
 
@@ -112,7 +126,13 @@ function component() {
 document.body.appendChild(component());
 
 
-function construir(valor) {
+
+function construir(valor, i) {
+  var idPara = 'para'+i
+  let para = document.getElementById(idPara)
+  para.innerHTML = valor;
+}
+function construirPara(valor) {
   let listagem = document.getElementById('item');
   let para = document.createElement('p');
   para.innerHTML = valor;
